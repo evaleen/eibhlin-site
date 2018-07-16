@@ -9,6 +9,7 @@ const HeaderWrapper = styled.div({
   justifyContent: 'flex-end',
   position: 'fixed',
   width: '100vw',
+  zIndex: 2
 })
 
 const Link = styled.a({

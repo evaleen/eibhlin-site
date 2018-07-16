@@ -73,7 +73,7 @@ const WorkExperience = () => (
       <ImageDecsriptionFlip
         img="dock.jpg"
         alt="Accenture - The Dock"
-        width="400px"
+        width="320px"
         height="280px"
         position={{ margin: '0 auto' }}
         text="The Dock is Accentures global center for innovation. Here I have been doing rapid prototyping with emerging front-end technologies in collaboration with design and AI."

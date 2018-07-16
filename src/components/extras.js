@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ComponentWrapper, ContentTitle } from '../styles/shared-styles'
+import { ComponentWrapper, ContentTitle, IframeWrapper } from '../styles/shared-styles'
 
 const Description = styled.div({
   padding: '15px 0',
@@ -12,12 +12,6 @@ const Description = styled.div({
 const IframeContentWrapper = styled.div({
   padding: '2vh 0',
   textAlign: 'center',
-})
-
-const IframeWrapper = styled.div({
-  position: 'relative',
-  overflow: 'hidden',
-  paddingTop: '56.25%',
 })
 
 const Iframe = styled.iframe({

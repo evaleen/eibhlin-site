@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { IframeWrapper } from '../styles/shared-styles';
 
 const IntroWrapper = styled.div({
   textAlign: 'center',
@@ -10,7 +11,13 @@ const IntroWrapper = styled.div({
 })
 
 const Iframe = styled.iframe({
-  margin: '0 auto',
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  width: '47%',
+  transform: 'translate(-50%, -50%)',
+  height: '100%',
+  border: '0',
 })
 
 const TextWrapper = styled.div({
@@ -24,12 +31,9 @@ const TextWrapper = styled.div({
 
 const Intro = () => (
   <IntroWrapper>
-    <Iframe
-      src="https://giphy.com/embed/26BkNnO2qmCWTQuac"
-      width="407"
-      height="480"
-      frameBorder="0"
-    />
+    <IframeWrapper>
+      <Iframe src="https://giphy.com/embed/26BkNnO2qmCWTQuac" frameBorder="0" />
+    </IframeWrapper>
     <TextWrapper>
       {
         'Hi! I’m Eibhlín, I’m a web dev, feminist, cyclist and chickpea fanatic.'

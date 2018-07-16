@@ -10,3 +10,9 @@ export const ContentTitle = styled.h3({
 export const ComponentWrapper = styled.div({
   overflowY: 'hidden'
 })
+
+export const IframeWrapper = styled.div({
+  position: 'relative',
+  overflow: 'hidden',
+  paddingTop: '56.25%',
+})
