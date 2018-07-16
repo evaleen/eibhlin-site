@@ -21,12 +21,13 @@ const Iframe = styled.iframe({
   width: '100%',
   height: '100%',
   border: '0',
+  border: '5px solid #EEE2E2'
 })
 
 const Image = styled.img`
   height: auto;
   width: 60%;
-  border: 1px solid white;
+  border: 5px solid #EEE2E2;
   @media (max-width: 700px) {
     width: 100%;
   }
@@ -70,7 +71,7 @@ const Extras = () => (
     <TextDescription
       img="intro-to-web-dev"
       alt="Intro to Web Dev"
-      text={`I often do an "Hour of Code" with students that come in to the office. My goal is to convince them to go into tech, and prove that the stereotype aren't true!`}
+      text={`I often do an "Hour of Code" with students that come in to the office. My goal is to convince them to go into tech, and show them that the coder stereotype isn't true!`}
       position="left"
     />
   </ComponentWrapper>

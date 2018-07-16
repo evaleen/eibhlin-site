@@ -23,10 +23,11 @@ const Iframe = styled.iframe({
 const TextWrapper = styled.div({
   fontSize: '2rem',
   lineHeight: '3.5rem',
-  maxWidth: '800px',
+  maxWidth: '700px',
   margin: '0 auto',
   letterSpacing: '0.03em',
   paddingTop: '2rem',
+  color: '#EEE2E2'
 })
 
 const Intro = () => (
@@ -36,7 +37,7 @@ const Intro = () => (
     </IframeWrapper>
     <TextWrapper>
       {
-        'Hi! I’m Eibhlín, I’m a web dev, feminist, cyclist and chickpea fanatic.'
+        'Hi! I’m Eibhlín, I’m a web dev, women in tech advocate, cyclist and chickpea fanatic.'
       }
     </TextWrapper>
   </IntroWrapper>
