@@ -70,7 +70,7 @@ const Extras = () => (
     <TextDescription
       img="intro-to-web-dev"
       alt="Intro to Web Dev"
-      text={`I often do an "Hour of Code" with students that come in to the office. My goal is to convince them to go into tech, and prove that the stareotypes aren't true!`}
+      text={`I often do an "Hour of Code" with students that come in to the office. My goal is to convince them to go into tech, and prove that the stereotype aren't true!`}
       position="left"
     />
   </ComponentWrapper>

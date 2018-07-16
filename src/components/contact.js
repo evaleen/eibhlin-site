@@ -36,7 +36,7 @@ const Contact = () => (
       <Text>
         <ContentTitle>{'Want to get in touch?'}</ContentTitle>
         {
-          'Please feel free to take a snoop at my various social media acconts, or if you want to get straight to the point, '
+          'Please feel free to take a snoop at my various social media accounts, or if you want to get straight to the point, '
         }
         <Link
           href="https://www.linkedin.com/in/eibhlin-mcgeady-90735a95/"
