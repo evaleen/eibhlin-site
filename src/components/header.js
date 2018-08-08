@@ -19,6 +19,8 @@ const Link = styled.a({
 const Image = styled.img({
   width: '2rem',
   height: '2rem',
+  maxWidth: '35px',
+  maxHeight: '35px',
   color: 'white',
 })
 

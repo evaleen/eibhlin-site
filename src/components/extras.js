@@ -1,6 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ComponentWrapper, ContentTitle, IframeWrapper } from '../styles/shared-styles'
+import {
+  ComponentWrapper,
+  ContentTitle,
+  IframeWrapper,
+} from '../styles/shared-styles'
 
 const Description = styled.div({
   padding: '15px 0',
@@ -21,13 +25,13 @@ const Iframe = styled.iframe({
   width: '100%',
   height: '100%',
   border: '0',
-  border: '5px solid #EEE2E2'
+  border: '5px solid #EEE2E2',
 })
 
 const Image = styled.img`
   height: auto;
   width: 60%;
-  border: 5px solid #EEE2E2;
+  border: 5px solid #eee2e2;
   @media (max-width: 700px) {
     width: 100%;
   }
@@ -36,7 +40,8 @@ const Image = styled.img`
 const TextDescriptionWrapper = styled.div([], props => ({
   padding: '2vh 0',
   float: props.position,
-  textAlign: props.position
+  textAlign: props.position,
+  position: 'relative',
 }))
 
 const TextDescription = ({ img, alt, text, position }) => (
@@ -46,22 +51,32 @@ const TextDescription = ({ img, alt, text, position }) => (
   </TextDescriptionWrapper>
 )
 
+const VideoDescription = ({ id, startTime, description }) => (
+  <IframeContentWrapper>
+    <IframeWrapper>
+      <Iframe
+        src={`https://www.youtube.com/embed/${id}?rel=0&amp;start=${startTime}`}
+        frameBorder="0"
+      />
+    </IframeWrapper>
+    <Description>{description}</Description>
+  </IframeContentWrapper>
+)
+
 const Extras = () => (
   <ComponentWrapper>
     <ContentTitle
     >{`Here's a brief look at some stuff I've been getting up to...`}</ContentTitle>
-    <IframeContentWrapper>
-      <IframeWrapper>
-        >
-        <Iframe
-          src="https://www.youtube.com/embed/ic08YluonNU?rel=0&amp;start=104"
-          frameBorder="0"
-        />
-      </IframeWrapper>
-      <Description>
-        {`Here's a lightning talk I gave a while back about building and deploying a web app in 5 minutes.`}
-      </Description>
-    </IframeContentWrapper>
+    <VideoDescription
+      id="hggVCRR7IRk"
+      startTime="405"
+      description="I gave a talk at a meetup recently about GatsbyJS. I'm really enjoying it so far!"
+    />
+    <VideoDescription
+      id="ic08YluonNU"
+      startTime="104"
+      description="Here's a lightning talk I gave a while back about building and deploying a web app in 5 minutes."
+    />
     <TextDescription
       img="react-native"
       alt="React Native Workshop"
