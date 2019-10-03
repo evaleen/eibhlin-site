@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div(
-  ({ width, height }) => `
+  ({ width, height }: { width: string; height: string }) => `
     position: relative;
     width: ${width};
     height: ${height};
