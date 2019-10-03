@@ -1,48 +1,16 @@
 import React from 'react'
-import styled from 'styled-components'
 import {
   ComponentWrapper,
   ContentTitle,
   IframeWrapper,
-} from '../styles/shared-styles'
-
-const Description = styled.div({
-  padding: '15px 0',
-  fontSize: '16px',
-  lineHeight: '20px',
-  letterSpacing: '0.5px',
-})
-
-const IframeContentWrapper = styled.div({
-  padding: '2vh 0',
-  textAlign: 'center',
-})
-
-const Iframe = styled.iframe({
-  position: 'absolute',
-  top: '0',
-  left: '0',
-  width: '100%',
-  height: '100%',
-  border: '0',
-  border: '5px solid #EEE2E2',
-})
-
-const Image = styled.img`
-  height: auto;
-  width: 60%;
-  border: 5px solid #eee2e2;
-  @media (max-width: 700px) {
-    width: 100%;
-  }
-`
-
-const TextDescriptionWrapper = styled.div([], props => ({
-  padding: '2vh 0',
-  float: props.position,
-  textAlign: props.position,
-  position: 'relative',
-}))
+} from 'src/style/components'
+import {
+  TextDescriptionWrapper,
+  Image,
+  Description,
+  IframeContentWrapper,
+  Iframe,
+} from './style'
 
 const TextDescription = ({ img, alt, text, position }) => (
   <TextDescriptionWrapper position={position}>
@@ -65,8 +33,7 @@ const VideoDescription = ({ id, startTime, description }) => (
 
 const Extras = () => (
   <ComponentWrapper>
-    <ContentTitle
-    >{`Here's a brief look at some stuff I've been getting up to...`}</ContentTitle>
+    <ContentTitle>{`Here's a brief look at some stuff I've been getting up to...`}</ContentTitle>
     <VideoDescription
       id="hggVCRR7IRk"
       startTime="405"
