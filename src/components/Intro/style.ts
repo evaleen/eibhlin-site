@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Image from 'gatsby-image'
 
 export default styled.div`
   text-align: center;
@@ -6,16 +7,13 @@ export default styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 `
 
-export const Iframe = styled.iframe`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 47%;
-  transform: translate(-50%, -50%);
-  height: 100%;
-  border: 0;
+export const StyledImage = styled(Image)`
+  width: 25vw;
+  min-width: 300px;
+  max-width: 500px;
 `
 
 export const TextWrapper = styled.div`

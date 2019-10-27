@@ -1,17 +1,35 @@
 import React from 'react'
-import Intro from '../components/Intro'
-import Extras from '../components/Extras'
-import WorkExperience from '../components/WorkExperience'
-import Contact from '../components/Contact'
+import { graphql, useStaticQuery } from 'gatsby'
+import { Intro, Extras, WorkExperience, Contact } from '../components'
 import Layout from '../layouts'
 
-const IndexPage: React.SFC = () => (
-  <Layout>
-    <Intro />
-    <Extras />
-    <WorkExperience />
-    <Contact />
-  </Layout>
-)
+const IndexPage: React.SFC = () => {
+  const { intro, extras, experience, contact } = useStaticQuery(query)
+  return (
+    <Layout>
+      <Intro {...intro} />
+      <Extras {...extras} />
+      <WorkExperience {...experience} />
+      <Contact {...contact} />
+    </Layout>
+  )
+}
+
+const query = graphql`
+  query {
+    intro: contentfulIntro(name: { eq: "Intro Block" }) {
+      ...intro
+    }
+    extras: contentfulExtras(name: { eq: "Extras" }) {
+      ...extras
+    }
+    experience: contentfulExperience(name: { eq: "Experience" }) {
+      ...experience
+    }
+    contact: contentfulContact(name: { eq: "Contact" }) {
+      ...contact
+    }
+  }
+`
 
 export default IndexPage

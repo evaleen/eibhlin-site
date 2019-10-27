@@ -1,5 +1,6 @@
 import React from 'react'
-import { ComponentWrapper, ContentTitle } from 'src/style/components'
+import Image from 'gatsby-image'
+import { ComponentWrapper } from 'src/style/components'
 import {
   Container,
   Flip,
@@ -8,51 +9,32 @@ import {
   BackgroundImage,
   TextWrapper,
 } from './style'
+import BlockDescription from '../BlockTitle'
 
-const ImageDescriptionFlip = ({ img, alt, text, width, height, position }) => (
-  <Container width={width} height={height} style={position}>
+const ImageDescriptionFlip = ({ image, description: { description } }) => (
+  <Container>
     <Flip>
       <FlipWrapper>
-        <img src={`/images/work/${img}`} alt={alt} />
+        <Image {...image} />
       </FlipWrapper>
-      <TextWrapper img={img}>
-        <BackgroundImage src={`/images/work/${img}`} alt={alt} />
-        <FlipText>{text}</FlipText>
+      <TextWrapper>
+        <BackgroundImage {...image} />
+        <FlipText>{description}</FlipText>
       </TextWrapper>
     </Flip>
   </Container>
 )
 
-const WorkExperience = () => (
+const WorkExperience: React.SFC<WorkExperienceBlock> = ({
+  description,
+  content,
+}: WorkExperienceBlock) => (
   <ComponentWrapper>
-    <ContentTitle>
-      {'These are some of the amazing places I have worked in'}
-    </ContentTitle>
+    <BlockDescription {...description} />
     <div>
-      <ImageDescriptionFlip
-        img="dock.jpg"
-        alt="Accenture - The Dock"
-        width="320px"
-        height="280px"
-        position={{ margin: '0 auto' }}
-        text="The Dock is Accenture's global center for innovation. Here I have been doing rapid prototyping with emerging front-end technologies in collaboration with design and AI."
-      />
-      <ImageDescriptionFlip
-        img="hubspot.png"
-        alt="Hubspot"
-        width="300px"
-        height="300px"
-        position={{ float: 'left' }}
-        text="HubSpot makes a Inbound Marketing software to help small or medium businesses. Here I was part of the forms builder team, and I contributed to building the redesigned forms builder."
-      />
-      <ImageDescriptionFlip
-        img={'cellusys.png'}
-        alt="Cellusys"
-        width="200px"
-        height="200px"
-        position={{ float: 'right' }}
-        text="Cellusys is a network technology company. Along with the other interns, I built an internal tool for Cellusys to track their R&D hours."
-      />
+      {content.map((props, index) => (
+        <ImageDescriptionFlip key={index} {...props} />
+      ))}
     </div>
   </ComponentWrapper>
 )

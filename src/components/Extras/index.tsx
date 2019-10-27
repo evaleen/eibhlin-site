@@ -1,25 +1,29 @@
 import React from 'react'
-import {
-  ComponentWrapper,
-  ContentTitle,
-  IframeWrapper,
-} from 'src/style/components'
+import BlockTitle from '../BlockTitle'
+import { ComponentWrapper, IframeWrapper } from 'src/style/components'
 import {
   TextDescriptionWrapper,
-  Image,
+  StyledImage,
   Description,
   IframeContentWrapper,
   Iframe,
 } from './style'
 
-const TextDescription = ({ img, alt, text, position }) => (
-  <TextDescriptionWrapper position={position}>
-    <Image src={`/images/${img}.jpg`} alt={alt} />
-    <Description>{text}</Description>
+const ImageDescription = ({
+  image,
+  description: { description },
+}: ImageECA) => (
+  <TextDescriptionWrapper position="left">
+    <StyledImage {...image} />
+    <Description>{description}</Description>
   </TextDescriptionWrapper>
 )
 
-const VideoDescription = ({ id, startTime, description }) => (
+const VideoDescription = ({
+  id,
+  startTime,
+  description: { description },
+}: VideoECA) => (
   <IframeContentWrapper>
     <IframeWrapper>
       <Iframe
@@ -31,31 +35,19 @@ const VideoDescription = ({ id, startTime, description }) => (
   </IframeContentWrapper>
 )
 
-const Extras = () => (
+const Extras: React.SFC<ExtrasBlock> = ({
+  description,
+  content,
+}: ExtrasBlock) => (
   <ComponentWrapper>
-    <ContentTitle>{`Here's a brief look at some stuff I've been getting up to...`}</ContentTitle>
-    <VideoDescription
-      id="hggVCRR7IRk"
-      startTime="405"
-      description="I gave a talk at a meetup recently about GatsbyJS. I'm really enjoying it so far!"
-    />
-    <VideoDescription
-      id="ic08YluonNU"
-      startTime="104"
-      description="Here's a lightning talk I gave a while back about building and deploying a web app in 5 minutes."
-    />
-    <TextDescription
-      img="react-native"
-      alt="React Native Workshop"
-      text={`I had some down time at work a few months back so I took the opportunity to teach myself React Native and then shared my knowledge with my collegues!`}
-      position="right"
-    />
-    <TextDescription
-      img="intro-to-web-dev"
-      alt="Intro to Web Dev"
-      text={`I often do an "Hour of Code" with students that come in to the office. My goal is to convince them to go into tech, and show them that the coder stereotype isn't true!`}
-      position="left"
-    />
+    <BlockTitle {...description} />
+    {content.map(({ id, ...props }: VideoECA | ImageECA) =>
+      !!id ? (
+        <VideoDescription id={id} {...(props as VideoECA)} />
+      ) : (
+        <ImageDescription {...(props as ImageECA)} />
+      )
+    )}
   </ComponentWrapper>
 )
 

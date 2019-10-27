@@ -1,14 +1,13 @@
 import styled from 'styled-components'
+import Image from 'gatsby-image'
 
-export const Container = styled.div(
-  ({ width, height }: { width: string; height: string }) => `
-    position: relative;
-    width: ${width};
-    height: ${height};
-    zIndex: 1;
-    perspective: 1000,
-  `
-)
+export const Container = styled.div`
+  position: relative;
+  width: 500px;
+  height: 500px;
+  z-index: 1;
+  perspective: 1000;
+`
 
 export const Flip = styled.div`
   width: 100%;
@@ -35,7 +34,7 @@ export const TextWrapper = styled(FlipWrapper)`
   padding: 10px;
 `
 
-export const BackgroundImage = styled.img`
+export const BackgroundImage = styled(Image)`
   transform: rotateY(180deg);
   opacity: 0.5;
 `

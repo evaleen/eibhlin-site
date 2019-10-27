@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Image from 'gatsby-image'
 
 export const Description = styled.div`
   padding: 15px 0;
@@ -22,7 +23,7 @@ export const Iframe = styled.iframe`
   border: 5px solid #eee2e2;
 `
 
-export const Image = styled.img`
+export const StyledImage = styled(Image)`
   height: auto;
   width: 60%;
   border: 5px solid #eee2e2;

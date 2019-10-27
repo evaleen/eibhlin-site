@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Image from 'gatsby-image'
 import { ComponentWrapper } from 'src/style/components'
 
 export default styled(ComponentWrapper)`
@@ -10,7 +11,7 @@ export default styled(ComponentWrapper)`
   }
 `
 
-export const Image = styled.img`
+export const StyledImage = styled(Image)`
   border-radius: 50%;
   width: 60%;
   height: 60%;
@@ -23,12 +24,4 @@ export const Text = styled.div`
   letter-spacing: 1px;
   font-size: 20px;
   line-height: 25px;
-`
-
-export const Link = styled.a`
-  color: inherit;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
 `
