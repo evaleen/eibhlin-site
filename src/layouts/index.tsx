@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet'
 import { ThemeProvider } from 'styled-components'
 import Header from '../components/Header'
 import { Main } from '../style/components'
-import { socials } from '../constants'
 
 import GlobalStyle from '../style/GlobalStyle'
 import * as theme from '../style/theme'
@@ -15,11 +14,11 @@ const Layout = ({ children }) => (
       <Helmet>
         <title>Eibhlín McGeady</title>
         <link
-          href="https://fonts.googleapis.com/css?family=Habibi"
+          href="https://fonts.googleapis.com/css?family=Viga|Kalam:700|Roboto&display=swap"
           rel="stylesheet"
         />
       </Helmet>
-      <Header socialMedia={socials} />
+      <Header />
       <Main>{children}</Main>
     </>
   </ThemeProvider>

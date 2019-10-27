@@ -1,16 +1,12 @@
 import React from 'react'
-import { IframeWrapper } from 'src/style/components'
-import ContentWrapper, { Iframe, TextWrapper } from './style'
+import RichText from '../RichText'
+import ContentWrapper, { StyledImage, TextWrapper } from './style'
 
-const Intro = () => (
+const Intro: React.SFC<IntroBlock> = ({ image, copy }: IntroBlock) => (
   <ContentWrapper>
-    <IframeWrapper>
-      <Iframe src="https://giphy.com/embed/26BkNnO2qmCWTQuac" frameBorder="0" />
-    </IframeWrapper>
+    <StyledImage {...image} />
     <TextWrapper>
-      {
-        'Hi! I’m Eibhlín, I’m a web dev, women in tech advocate, cyclist and chickpea fanatic.'
-      }
+      <RichText {...copy} />
     </TextWrapper>
   </ContentWrapper>
 )
