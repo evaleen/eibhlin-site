@@ -16,7 +16,7 @@ exports.sourceNodes = ({ actions }) => {
     }
 
     type ContentfulVideoEca implements Node {
-      id: String
+      ytId: String
       startTime: Int
       description: contentfulVideoEcaDescriptionTextNode
     }

@@ -2,7 +2,7 @@ import React from 'react'
 import BlockTitle from '../BlockTitle'
 import { ComponentWrapper, IframeWrapper } from 'src/style/components'
 import {
-  TextDescriptionWrapper,
+  ImageDescriptionWrapper,
   StyledImage,
   Description,
   IframeContentWrapper,
@@ -10,24 +10,25 @@ import {
 } from './style'
 
 const ImageDescription = ({
+  index,
   image,
   description: { description },
-}: ImageECA) => (
-  <TextDescriptionWrapper position="left">
+}: ImageECA & { index: number }) => (
+  <ImageDescriptionWrapper index={index}>
     <StyledImage {...image} />
     <Description>{description}</Description>
-  </TextDescriptionWrapper>
+  </ImageDescriptionWrapper>
 )
 
 const VideoDescription = ({
-  id,
+  ytId,
   startTime,
   description: { description },
 }: VideoECA) => (
   <IframeContentWrapper>
     <IframeWrapper>
       <Iframe
-        src={`https://www.youtube.com/embed/${id}?rel=0&amp;start=${startTime}`}
+        src={`https://www.youtube.com/embed/${ytId}?rel=0&amp;start=${startTime}`}
         frameBorder="0"
       />
     </IframeWrapper>
@@ -41,11 +42,11 @@ const Extras: React.SFC<ExtrasBlock> = ({
 }: ExtrasBlock) => (
   <ComponentWrapper>
     <BlockTitle {...description} />
-    {content.map(({ id, ...props }: VideoECA | ImageECA) =>
-      !!id ? (
-        <VideoDescription id={id} {...(props as VideoECA)} />
+    {content.map((props: VideoECA | ImageECA, index) =>
+      !!props.ytId ? (
+        <VideoDescription {...(props as VideoECA)} key={index} />
       ) : (
-        <ImageDescription {...(props as ImageECA)} />
+        <ImageDescription {...(props as ImageECA)} key={index} index={index} />
       )
     )}
   </ComponentWrapper>

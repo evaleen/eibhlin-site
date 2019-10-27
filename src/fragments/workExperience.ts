@@ -4,8 +4,8 @@ export const workExperience = graphql`
   fragment workExperience on ContentfulWorkExperience {
     name
     image {
-      fluid {
-        ...GatsbyContentfulFluid_withWebp
+      fixed(height: 240) {
+        ...GatsbyContentfulFixed
       }
     }
     description {

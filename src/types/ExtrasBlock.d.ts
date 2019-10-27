@@ -4,7 +4,7 @@ interface ExtrasBlock {
 }
 
 interface VideoECA {
-  id: string
+  ytId: string
   startTime: number
   description: Description
 }

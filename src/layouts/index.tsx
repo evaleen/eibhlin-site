@@ -14,7 +14,7 @@ const Layout = ({ children }) => (
       <Helmet>
         <title>Eibhlín McGeady</title>
         <link
-          href="https://fonts.googleapis.com/css?family=Habibi"
+          href="https://fonts.googleapis.com/css?family=Viga|Kalam:700|Roboto&display=swap"
           rel="stylesheet"
         />
       </Helmet>

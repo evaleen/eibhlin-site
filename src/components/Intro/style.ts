@@ -16,12 +16,16 @@ export const StyledImage = styled(Image)`
   max-width: 500px;
 `
 
-export const TextWrapper = styled.div`
-  font-size: 2rem;
-  line-height: 3rem;
-  max-width: 700px;
-  margin: 0 auto;
-  letter-spacing: 0.03em;
-  padding-top: 2rem;
-  color: #f9ebeb;
-`
+export const TextWrapper = styled.div(
+  ({ theme: { colors, fonts } }) => `
+    font-size: 2rem;
+    line-height: 1.5;
+    max-width: 700px;
+    margin: 0 auto;
+    letter-spacing: 0.03em;
+    padding-top: 2rem;
+    color: ${colors.heading};
+    font-family: ${fonts.families.title};
+    font-weight: bold;
+  `
+)

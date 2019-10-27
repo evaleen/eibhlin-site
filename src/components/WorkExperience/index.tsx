@@ -1,27 +1,17 @@
 import React from 'react'
 import Image from 'gatsby-image'
 import { ComponentWrapper } from 'src/style/components'
-import {
-  Container,
-  Flip,
-  FlipWrapper,
-  FlipText,
-  BackgroundImage,
-  TextWrapper,
-} from './style'
+import { Container, Description, ContentWrapper } from './style'
 import BlockDescription from '../BlockTitle'
 
-const ImageDescriptionFlip = ({ image, description: { description } }) => (
-  <Container>
-    <Flip>
-      <FlipWrapper>
-        <Image {...image} />
-      </FlipWrapper>
-      <TextWrapper>
-        <BackgroundImage {...image} />
-        <FlipText>{description}</FlipText>
-      </TextWrapper>
-    </Flip>
+const ImageDescriptionFlip = ({
+  image,
+  index,
+  description: { description },
+}) => (
+  <Container index={index}>
+    <Image {...image} />
+    <Description>{description}</Description>
   </Container>
 )
 
@@ -31,11 +21,11 @@ const WorkExperience: React.SFC<WorkExperienceBlock> = ({
 }: WorkExperienceBlock) => (
   <ComponentWrapper>
     <BlockDescription {...description} />
-    <div>
+    <ContentWrapper rows={content.length}>
       {content.map((props, index) => (
-        <ImageDescriptionFlip key={index} {...props} />
+        <ImageDescriptionFlip {...props} key={index} index={index} />
       ))}
-    </div>
+    </ContentWrapper>
   </ComponentWrapper>
 )
 
